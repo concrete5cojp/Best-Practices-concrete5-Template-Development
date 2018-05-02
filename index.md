@@ -1,37 +1,24 @@
-## Welcome to GitHub Pages
+---
+layout: page
+title: ベーシック
+---
 
-You can use the [editor on GitHub](https://github.com/concrete5cojp/Best-Practices-concrete5-Template-Development/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+## テーマ開発のベストプラクティス＆バッドプラクティス
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+このサイトでは、concrete5 のテーマや各種テンプレートを作成する際のベストプラクティス（積極的に採用すべき手法）やバッドプラクティス（避けるべき手法）についてまとめています。
 
-### Markdown
+### 本サイトが対象としている読者
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+* concrete5 のテーマや各種テンプレートを作成するCMSエンジニア
+* concrete5 のテーマや各種テンプレートを作成するためのHTML/CSSコーディングを行うフロントエンドエンジニア
 
-```markdown
-Syntax highlighted code block
+### 本サイトが対象としていない読者
 
-# Header 1
-## Header 2
-### Header 3
+* concrete5 にプリインストールされている Elemental テーマや、マーケットプレイスから入手したテーマを利用する方
+* アドオンやその他テンプレートの作成とは関係がない機能開発を行うPHPエンジニア
 
-- Bulleted
-- List
+### なぜベストプラクティスやバッドプラクティスが存在するの？　concrete5 はカスタマイズしにくいCMSなの？
 
-1. Numbered
-2. List
+concrete5 は、デザインカスタマイズの自由度が高いCMSです。本サイトを読まなくても、基本的なカスタマイズ方法（concrete5 公式サイトや書籍で学べます）を理解していれば、concrete5 の様々なテンプレートのカスタマイズが柔軟に行えることはご理解いただけるでしょう。
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/concrete5cojp/Best-Practices-concrete5-Template-Development/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+一方、concrete5 は、コンテンツの編集者にも高い自由度を提供します。実際のウェブページのデザインを確認しながら、ブロックを直接クリックして編集したり、ドラッグ＆ドロップで並び替えしたりすることができます。そして、このような直感的な編集モードは「ウェブページと同じ画面で共存する」ことが最大の特徴になります。つまり、テーマやテンプレートの作りが、コンテンツ編集のユーザーエクスペリエンスを損ねたり、最悪の場合、全く編集できなくしたりという影響を与える可能性がある、ということです。このような問題を避け、concrete5 の様々な編集機能を最大限活用するために、ベストプラクティスやバッドプラクティスがあります。
