@@ -31,7 +31,7 @@ h1 { font-size: 18px; }
 
 ### concrete5 関連の JavaScript は命名規則で分離
 
-concrete5 の直感的なインターフェースの挙動、JavaScript によって実現されています。concrete5 が定義する関数は `Concrete` や `ccm_` が先頭に付き、jQuery プラグインは `concrete` が先頭に付きます。
+concrete5 の直感的なインターフェースの挙動は、JavaScript によって実現されています。concrete5 が定義する関数は `Concrete` や `ccm_` が先頭に付き、jQuery プラグインは `concrete` が先頭に付きます。
 
 例： `ConcreteToolbar`, `ccm_addError`, `$.concreteMenu()`
 
