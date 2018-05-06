@@ -145,6 +145,8 @@ concrete5 が出力するコードには、CSS や JavaScript の実装の際に
 
 ページラッパークラスとは、ウェブページ全体を囲む div 要素に付けられる class 属性のことです。すでにでてきた `.ccm-page` もそのひとつです。テーマの中の `<?php echo $c->getPageWrapperClass()?>` という記述で出力されます。
 
+`.ccm-page` クラス以外にも、現在のページタイプごとに出力される `.page-type-example` クラス（`example` 部分はページタイプのハンドル）、`.page-template-example` クラス（`example` 部分はページテンプレートのハンドル）が出力されますので、ページタイプやページテンプレートごとにスタイルシートを調整したい用途に使うことができます。
+
 ### デザイン機能でできること、起こること
 
 concrete5 には、ブロックやエリアに対して、編集モードから背景色や余白などを調整できるデザイン機能があります。
@@ -161,7 +163,7 @@ concrete5 には、ブロックやエリアに対して、編集モードから�
 | シャドウと回転 | シャドウ（`box-shadow`）と回転（`transform: rotate`）、デバイスごとの表示・非表示を設定できます。デバイスごとの表示・非表示は、テーマが採用している CSS フレームワークがサポートしている場合に限ります（Bootstrap における `hidden-xs` クラスなど）。 |
 | カスタムCSSクラス、ブロック名、カスタムテンプレートやスタイルのリセット | [カスタムテンプレート](https://concrete5-japan.org/help/5-7/developer/working-with-blocks/working-with-existing-block-types/creating-additional-custom-view-templates/)を選択できます。そのほか、クラス属性値、ID属性値、任意の属性値（data-* 属性など）の設定、グリッドコンテナの無効化・有効化が行えます。グリッドコンテナの無効化・有効化は、テーマが採用している CSS フレームワークが対応している場合に限ります（Bootstrap における `div.container` が該当）。 |
 
-特にカスタムクラス機能は、ブロックのデザインにバリエーションを持たせたい場合に、単に違う class 属性値を簡単に設定することができ、かつカスタムテンプレートを開発する必要がないため、重宝します。
+特にカスタムクラス機能は、ブロックのデザインにバリエーションを持たせたい場合に、class 属性値を簡単に設定することができ、かつカスタムテンプレートを開発する必要がないため、重宝します。
 これはデザイナーおよびフロントエンドエンジニアの都合ではありますが、コンテンツ編集者の利便性も損なわないよう、[テーマからカスタムクラスの選択肢をあらかじめ設定できる](https://concrete5-japan.org/help/5-7/developer/designing-for-concrete5/advanced-css-and-javascript-usage/adding-custom-css-classes-to-blocks-areas-and-the-editor/)ようになっています（英語で `custom-style` などの class 属性値を編集者にタイプさせることに納得してもらうのは骨の折れる作業ですが、選択肢の中から選ぶとなればいくらか緩和します）。
 
 これらのデザイン機能をあてにして CSS を設計する場合に、実際にどのようにデザインの変更が適用されるのかを知っておく必要があります。
