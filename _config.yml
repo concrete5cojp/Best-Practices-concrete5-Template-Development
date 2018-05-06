@@ -2,3 +2,7 @@ title: concrete5 テーマ開発のベストプラクティス＆バッドプラ
 author: コンクリートファイブジャパン株式会社
 email: info@concrete5.co.jp
 theme: minima
+header_pages:
+  - index.md
+  - css-javascript.md
+  - blocktypes.md

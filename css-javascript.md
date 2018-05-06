@@ -19,7 +19,9 @@ title: CSS / JavaScript
 
 ### トルツメに対応する
 
-CMS を使って更新する際、
+CMS を使って更新する際、常に魅力的なサムネイル画像や簡潔な説明文が入力されるわけではありません。
+また、concrete5 の「ページリスト」ブロックでは、ブロックのオプションとしてサムネイル画像や日付などを表示させるかどうかを設定できます。
+それらの要素がHTMLに出力されなくても、崩れないように CSS をコーディングしましょう。
 
 ### style 属性や class 属性による微調整に依存しない
 
@@ -44,7 +46,7 @@ CMS を使って更新する際、
 
 ## concrete5 の編集モードとウェブページの共存
 
-concrete5 では、ウェブページを見たまま編集することができます。技術的には、concrete5 のインターフェースと、ウェブページそのものが、同じ HTML の中に両方出力されているという状態です。普段 CSS や JavaScript を書いている方であれば、そりゃマズイ、とピンとくるかもしれません。
+concrete5 では、ウェブページを見たまま編集することができます。concrete5 のインターフェースと、ウェブページそのものが、同じ HTML の中に両方出力されているという状態です。普段 CSS や JavaScript を書いている方であれば、そりゃマズイ、とピンとくるかもしれません。
 何の対策もしなければ、お互いがお互いに影響を与えてしまい、concrete5 のインターフェースが使えなくなったり、ウェブページが崩れてしまったりしてしまいます。
 
 干渉を防ぐためには、concrete5 が行なっている干渉を防ぐための工夫を知り、あなたが作成するテーマで使用する CSS や JavaScript のコーディングで特定の記述を避ける必要があります。
@@ -141,4 +143,86 @@ concrete5 が出力するコードには、CSS や JavaScript の実装の際に
 
 ### ページラッパークラスを活用しよう
 
+ページラッパークラスとは、ウェブページ全体を囲む div 要素に付けられる class 属性のことです。すでにでてきた `.ccm-page` もそのひとつです。テーマの中の `<?php echo $c->getPageWrapperClass()?>` という記述で出力されます。
+
 ### デザイン機能でできること、起こること
+
+concrete5 には、ブロックやエリアに対して、編集モードから背景色や余白などを調整できるデザイン機能があります。
+この機能でできる範囲であれば、あらかじめ CSS のクラスを用意しておくことなく、concrete5 の機能を利用して微調整が可能です。
+
+![デザイン機能](https://raw.githubusercontent.com/concrete5cojp/Best-Practices-concrete5-Template-Development/master/images/design-panel.png)
+
+| デザインパネル名称 | 機能 |
+| ---- | ---- |
+| テキストサイズと色 | 文字色、リンク色、文字サイズ、位置合わせ（`text-align`）を設定できます。 |
+| 背景色と画像 | 背景色と背景画像（`background-image`, `background-repeat`, `background-size`, `background-position`）を設定できます。 |
+| 枠 | 枠（`border-width`, `border-style`, `border-color`, `border-radius`）を設定できます。 |
+| マージンとパディング | margin と padding を上下左右それぞれ px で設定できます。 |
+| シャドウと回転 | シャドウ（`box-shadow`）と回転（`transform: rotate`）、デバイスごとの表示・非表示を設定できます。デバイスごとの表示・非表示は、テーマが採用している CSS フレームワークがサポートしている場合に限ります（Bootstrap における `hidden-xs` クラスなど）。 |
+| カスタムCSSクラス、ブロック名、カスタムテンプレートやスタイルのリセット | [カスタムテンプレート](https://concrete5-japan.org/help/5-7/developer/working-with-blocks/working-with-existing-block-types/creating-additional-custom-view-templates/)を選択できます。そのほか、クラス属性値、ID属性値、任意の属性値（data-* 属性など）の設定、グリッドコンテナの無効化・有効化が行えます。グリッドコンテナの無効化・有効化は、テーマが採用している CSS フレームワークが対応している場合に限ります（Bootstrap における `div.container` が該当）。 |
+
+特にカスタムクラス機能は、ブロックのデザインにバリエーションを持たせたい場合に、単に違う class 属性値を簡単に設定することができ、かつカスタムテンプレートを開発する必要がないため、重宝します。
+これはデザイナーおよびフロントエンドエンジニアの都合ではありますが、コンテンツ編集者の利便性も損なわないよう、[テーマからカスタムクラスの選択肢をあらかじめ設定できる](https://concrete5-japan.org/help/5-7/developer/designing-for-concrete5/advanced-css-and-javascript-usage/adding-custom-css-classes-to-blocks-areas-and-the-editor/)ようになっています（英語で `custom-style` などの class 属性値を編集者にタイプさせることに納得してもらうのは骨の折れる作業ですが、選択肢の中から選ぶとなればいくらか緩和します）。
+
+これらのデザイン機能をあてにして CSS を設計する場合に、実際にどのようにデザインの変更が適用されるのかを知っておく必要があります。
+
+カスタムデザイン適用前（記事ブロックの場合）：
+
+```html
+<p>記事ブロックで入力したコンテンツ</p>
+```
+
+カスタムデザイン適用後：
+
+* 背景色を指定
+* カスタムクラスとして `example-custom-class` を指定
+* カスタムIDとして `example-custom-id` を指定
+* カスタムエレメント属性として `example-element="example"` を指定
+
+```html
+<div class="ccm-custom-style-container ccm-custom-style-main-188 example-custom-class"
+        id="example-custom-id"
+            example-element="example">
+    <p>記事ブロックで入力したコンテンツ</p>
+</div>
+```
+
+このように、ブロックの外側に `<div>` 要素が**追加され**、追加された要素に対してカスタムクラスやカスタムIDなどが適用されます。
+背景色などの設定は、`<head>` 要素内に `<style>` 要素が追加され、その中に出力されます。
+
+```html
+<style type="text/css" data-area-style-area-handle="Main" data-block-style-block-id="188" data-style-set="34">
+.ccm-custom-style-container.ccm-custom-style-main-188{
+    background-color:rgb(255, 0, 0)
+}
+</style>
+```
+
+この仕様は、カスタムテンプレートと共存させる場合に重要な意味があります。例えば、カスタムテンプレートで、ブロックを `div.content-wrapper` で囲んだとします。
+
+```html
+<div class="content-wrapper">
+    <p>記事ブロックで入力したコンテンツ</p>
+</div> 
+```
+
+さらに色のバリエーションを持たせるために、concrete5 のカスタムクラス機能に期待するとしましょう。しかし、このような html を想定してスタイルシートを用意してはいけません。
+
+```html
+<div class="content-wrapper color-red">
+    <p>記事ブロックで入力したコンテンツ</p>
+</div> 
+```
+
+カスタムクラス機能を使って実際に出力されるのはこうです。
+
+```html
+<div class="color-red">
+    <div class="content-wrapper">
+        <p>記事ブロックで入力したコンテンツ</p>
+    </div>
+</div>
+```
+
+また、**デザイナーやフロントエンドエンジニアがこのデザイン機能を使う予定がなかったとしても、コンテンツ編集者は使う可能性があります**。  
+**`<div>` 要素がブロックの外側に追加されても破綻しないよう、スタイルシートを設計してください**。
