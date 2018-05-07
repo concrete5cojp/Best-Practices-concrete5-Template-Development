@@ -43,3 +43,7 @@ HTML に精通したウェブ制作のプロなら難なくできるようなこ
 * [CSS / JavaScript](./css-javascript.html)
 * [ブロック一覧](./blocktypes.html)
 * [エディタ](./editor.html)
+
+## 本ドキュメントへのご意見・貢献
+
+本ドキュメントは、[GitHubで管理しています](https://github.com/concrete5cojp/Best-Practices-concrete5-Template-Development)。ご意見は Issue にて、改善は Pull Request にてお送りください。
