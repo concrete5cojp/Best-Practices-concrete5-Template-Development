@@ -164,7 +164,7 @@ concrete5 には、ブロックやエリアに対して、編集モードから�
 | カスタムCSSクラス、ブロック名、カスタムテンプレートやスタイルのリセット | [カスタムテンプレート](https://concrete5-japan.org/help/5-7/developer/working-with-blocks/working-with-existing-block-types/creating-additional-custom-view-templates/)を選択できます。そのほか、クラス属性値、ID属性値、任意の属性値（data-* 属性など）の設定、グリッドコンテナの無効化・有効化が行えます。グリッドコンテナの無効化・有効化は、テーマが採用している CSS フレームワークが対応している場合に限ります（Bootstrap における `div.container` が該当）。 |
 
 特にカスタムクラス機能は、ブロックのデザインにバリエーションを持たせたい場合に、class 属性値を簡単に設定することができ、かつカスタムテンプレートを開発する必要がないため、重宝します。
-これはデザイナーおよびフロントエンドエンジニアの都合ではありますが、コンテンツ編集者の利便性も損なわないよう、[テーマからカスタムクラスの選択肢をあらかじめ設定できる](https://concrete5-japan.org/help/5-7/developer/designing-for-concrete5/advanced-css-and-javascript-usage/adding-custom-css-classes-to-blocks-areas-and-the-editor/)ようになっています（英語で `custom-style` などの class 属性値を編集者にタイプさせることに納得してもらうのは骨の折れる作業ですが、選択肢の中から選ぶとなればいくらか緩和します）。
+これはデザイナーおよびフロントエンドエンジニアの都合ではありますが、コンテンツ編集者の利便性も損なわないよう、[テーマからカスタムクラスの選択肢をあらかじめ設定できる](https://concrete5-japan.org/help/5-7/developer/designing-for-concrete5/advanced-css-and-javascript-usage/adding-custom-css-classes-to-blocks-areas-and-the-editor/)ようになっています（編集者に英語で `column` などの class 属性値をタイプすることに納得してもらうのは骨の折れる作業ですが、選択肢の中から選ぶだけでいいとなればいくらか緩和します）。
 
 これらのデザイン機能をあてにして CSS を設計する場合に、実際にどのようにデザインの変更が適用されるのかを知っておく必要があります。
 
