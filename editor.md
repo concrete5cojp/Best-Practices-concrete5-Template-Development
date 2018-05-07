@@ -45,7 +45,7 @@ CMS で更新されることを考慮すれば、スタイルシートの設計�
 | 両端揃え | `style="text-align: justify;"` |
 | ブロック引用文 | `blockquote` |
 | 水平線 | `hr` |
-| 顔文字 | `<img alt="smiley" height="23" src="https://concrete5.test/concrete/js/ckeditor4/vendor/plugins/smiley/images/regular_smile.png" title="smiley" width="23" />` など |
+| 顔文字 | `<img alt="smiley" height="23" src="regular_smile.png" title="smiley" width="23" />` など |
 | 改ページ | `<div style="page-break-after: always"><span style="display: none;">&nbsp;</span></div>` |
 | フォント | `<span style="font-family:Arial,Helvetica,sans-serif;">` など |
 | サイズ | `<span style="font-size:20px;">` など |
