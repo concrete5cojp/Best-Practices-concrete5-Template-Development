@@ -43,6 +43,7 @@ HTML に精通したウェブ制作のプロなら難なくできるようなこ
 * [CSS / JavaScript](./css-javascript.html)
 * [ブロック一覧](./blocktypes.html)
 * [エディタ](./editor.html)
+* [レイアウト](.layouts.html)
 
 ## 本ドキュメントへのご意見・貢献
 
