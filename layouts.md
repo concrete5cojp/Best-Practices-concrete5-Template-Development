@@ -50,8 +50,8 @@ Twitter Bootstrap では、デバイスサイズごとのグリッドのクラ�
 
 Twitter Bootstrap には、先頭から順に左から右へと配置されるグリッドの順序を変更することができますが、concrete5 のグリッド機能では対応していません。
 
-Twitter Bootstrap が選択できるのは、テーマが対応している場合のみです。
-Bootstrap 以外にも、Foundation など他のフレームワークや、自作のフレームワークに対応させることもできます。
+concrete5 のレイアウトで Twitter Bootstrap が選択できるのは、テーマが Bootstrap に対応している場合のみです。
+Bootstrap を使って CSS を作成していない場合は、Foundation など他の有名なフレームワークや、自作のグリッドフレームワークにも対応させることができます。
 詳しくは[ドキュメント](https://concrete5-japan.org/help/5-7/developer/designing-for-concrete5/adding-grid-support-to-your-theme/)をご参照ください。
 
 #### 自由形式のレイアウト
